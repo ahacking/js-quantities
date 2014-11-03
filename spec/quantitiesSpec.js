@@ -420,6 +420,18 @@ describe("js-quantities", function() {
       expect(qty.to("ft").scalar).toBeCloseTo(1, 10);
     });
 
+    it("should perform unary negation of quantities", function() {
+      var qty = Qty("2.5m");
+      var result = qty.neg();
+      expect(result.scalar).toBe(-2.5);
+      expect(result.units()).toBe("m");
+
+      qty = Qty("-10 kg");
+      var result = qty.neg();
+      expect(result.scalar).toBe(10);
+      expect(result.units()).toBe("kg");
+    });
+
     it("should return itself if target units are the same", function() {
       var qty = Qty("123 cm3");
 

@@ -955,6 +955,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       return Qty({"scalar": 1/this.scalar, "numerator": this.denominator, "denominator": this.numerator});
     },
 
+    // Returns a Qty that is the unary negative of this Qty
+    neg: function(other) {
+      return Qty({"scalar": - this.scalar, "numerator": this.numerator, "denominator": this.denominator});
+    },
+
     isDegrees: function() {
       // signature may not have been calculated yet
       return (this.signature === null || this.signature === 400) &&
